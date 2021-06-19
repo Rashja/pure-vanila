@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+   
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+   
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="/products" data-link id="navbar__logo">RASHJA</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="/" data-link="" class="navbar__links" id="home-page">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/products" data-link class="navbar__links" id="about-page">Products</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/settings" data-link class="navbar__links" id="settings-page"
+              >Settings</a
+            >
+          </li>
+          <li class="navbar__btn">
+            <a href="/sign-up" data-link class="button" id="signup">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="root"></div>
+  </body>
+</html>
