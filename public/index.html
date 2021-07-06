@@ -13,21 +13,24 @@
    
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
    
-    <title>React App</title>
+    <title>Rashja</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <!-- Navbar Section -->
     <nav class="navbar">
       <div class="navbar__container">
-        <a href="/products" data-link id="navbar__logo">RASHJA</a>
+        <div class="dark-mode-wrapper" >
+          <a href="/products" data-link id="navbar__logo">RASHJA</a>
+          <span id="dark-icon" >🌓</span>
+        </div>
         <div class="navbar__toggle" id="mobile-menu">
           <span class="bar"></span> <span class="bar"></span>
           <span class="bar"></span>
         </div>
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <a href="/" data-link="" class="navbar__links" id="home-page">Home</a>
+            <a href="/" data-link class="navbar__links" id="home-page">Home</a>
           </li>
           <li class="navbar__item">
             <a href="/products" data-link class="navbar__links" id="about-page">Products</a>

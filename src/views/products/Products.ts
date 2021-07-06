@@ -2,16 +2,18 @@ import { View } from "../View";
 import { Product, ProductProps } from "../../models/Product";
 import { ProductCard } from "../../components/porduct-card/ProductCard";
 const products = Product.buildProductCollection();
-const product = Product.buidProduct({ id: 1 });
+const product = Product.buidProduct();
+
 
 export default class Posts extends View<Product, ProductProps> {
-  constructor(_params: number, _parent: Element) {
+  constructor(_params: {id:number}, _parent: Element) {
     super(_params, _parent, product);
     this.classDidMount();
   }
   
-  classDidMount = () => {
+  classDidMount = () => {    
     this.setTitle("products");
+    // products.delete()
     products.on("change", () => {
       this.render();
     });

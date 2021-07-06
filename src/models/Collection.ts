@@ -15,11 +15,16 @@ export class Collection<T, K> {
     return this.events.trigger;
   }
 
+  delete = () =>{
+    this.models= [];
+  }
+
   fetch(): void {
     axios.get(this.rootUrl).then((response: AxiosResponse) => {
+      this.models= [];
       response.data.forEach((value: K) => {
-        this.models.push(this.deserialize(value));
-      });
+          this.models.push(this.deserialize(value));
+        });
       this.trigger("change");
     });
   }

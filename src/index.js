@@ -1,7 +1,22 @@
 import Dashboard from "./views/Dashboard.ts";
 import Products from "./views/products/Products";
+import Product from "./views/product/Product";
 import Settings from "./views/Settings.ts";
 import "./style/index.scss";
+
+// dark mode
+const handleDarkMode = () => {
+  const darkModeIcon = document.querySelector("#dark-icon");
+  darkModeIcon.addEventListener("click", () => {
+    if (document.body.className === "") {
+      darkModeIcon.style.transform = "rotate(180deg)";
+      document.body.classList.toggle("dark-mode");
+    } else {
+      darkModeIcon.style.transform = "none";
+      document.body.className = "";
+    }
+  });
+};
 
 // nav bar
 const handleNavLogic = () => {
@@ -45,7 +60,7 @@ const router = () => {
   const routes = [
     { path: "/", view: Dashboard },
     { path: "/products", view: Products },
-    // { path: "/posts/:id", view: PostView },
+    { path: "/products/:id", view: Product },
     { path: "/settings", view: Settings },
   ];
 
@@ -59,7 +74,6 @@ const router = () => {
   let match = potentialMatches.find(
     (potentialMatch) => potentialMatch.result !== null
   );
-
   if (!match) {
     match = {
       route: routes[0],
@@ -71,7 +85,6 @@ const router = () => {
     getParams(match),
     document.getElementById("root")
   );
-
   view.render();
 };
 
@@ -82,16 +95,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.matches("[data-link]")) {
       e.preventDefault();
       navigateTo(e.target.href);
-    }
-  });
-  document.querySelector("#navbar__logo").addEventListener("click", () => {
-    if (document.body.className === "") {
-      document.body.classList.toggle("dark-mode");
-    } else {
-      document.body.className = "";
+    } else if (e.target.closest("a")) {
+      e.preventDefault();
+      navigateTo(e.target.closest("a").href);
     }
   });
 
   router();
   handleNavLogic();
+  handleDarkMode();
 });

@@ -2,7 +2,7 @@ body {
     margin: 0 0 0 var(--nav-width);
     font-family: 'Quicksand', sans-serif;
     font-size: 18px;
-    background-color: $off-dim-white;
+    background-color: $light-theme-main-bg;
 }
 
 #app {
@@ -18,9 +18,17 @@ body {
   scroll-behavior: smooth;
 }
 
+.dark-mode-wrapper {
+  display: flex;
+  align-items: center;
+  span{
+    cursor: pointer;
+    padding:0 10px;
+  }
+}
 
 .navbar {
-  background: #131313;
+  background: $light-theme-nav;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -43,8 +51,8 @@ body {
 }
 
 #navbar__logo {
-  background-color: #ff8177;
-  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  background-color: $light-theme-nav;
+  background-image: linear-gradient(to top, $light-theme-nav-start 0%, $light-theme-nav-end 100%);
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -69,7 +77,7 @@ body {
 }
 
 .navbar__links {
-  color: #fff;
+  color: $light-theme-white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,14 +107,14 @@ body {
   outline: none;
   border-radius: 4px;
   background: #833ab4;
-  background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
-  background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
-  color: #fff;
+  background: -webkit-linear-gradient(to right, $light-theme-nav-start, $off-white, $light-theme-nav-end);
+  background: linear-gradient(to right, $light-theme-nav-start, $off-white, $light-theme-nav-end);
+  color: $light-theme-nav;
   transition: all 0.3s ease;
 }
 
 .navbar__links:hover {
-  color: #9518fc;
+  color: $light-theme-nav-end;
   transition: all 0.3s ease;
 }
 
@@ -134,7 +142,7 @@ body {
   }
 
   .navbar__menu.active {
-    background: #131313;
+    background: $light-theme-nav;
     top: 100%;
     opacity: 1;
     transition: all 0.5s ease;

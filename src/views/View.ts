@@ -2,7 +2,7 @@ import { Model } from "../models/Model";
 
 export abstract class View<T extends Model<K>, K> {
   regions: { [key: string]: Element } = {};
-  constructor(params: number, public parent: Element, public model: T) {
+  constructor(params: {id:number}, public parent: Element, public model: T) {
     this.bindModel();
   }
 
@@ -18,50 +18,53 @@ export abstract class View<T extends Model<K>, K> {
 
   setTitle(title: string): void {
       document.title=title;
-  }
-
-  bindModel(): void {
-    this.model.on('change',()=>{
+    }
+    
+    bindModel(): void {
+      this.model.on('change',()=>{
         this.render();
-    });
-  }
-
-  bindEvents(fragment: DocumentFragment): void {
-    const eventsMap = this.eventsMap();
-
-    for (let eventKey in eventsMap) {
-      const [eventName, selector] = eventKey.split(":");
-
-      fragment.querySelectorAll(selector).forEach((element) => {
-        element.addEventListener(eventName, eventsMap[eventKey]);
       });
     }
-  }
-  mapRegions(fragment: DocumentFragment): void {
-    const regionsMap = this.regionsMap();
-
-    for (let key in regionsMap) {
-      const selector = regionsMap[key];
-      const element = fragment.querySelector(selector);
-
-      if (element) {
-        this.regions[key] = element;
+    
+    bindEvents(fragment: DocumentFragment): void {
+      const eventsMap = this.eventsMap();
+      
+      for (let eventKey in eventsMap) {
+        const [eventName, selector] = eventKey.split(":");
+        
+        fragment.querySelectorAll(selector).forEach((element) => {
+          element.addEventListener(eventName, eventsMap[eventKey]);
+        });
       }
     }
-  }
+    
+    mapRegions(fragment: DocumentFragment): void {
+      const regionsMap = this.regionsMap();
 
-  onRender(): void {}
-
-  render() {
-    // this.parent.innerHTML=''
-    const templateElement = document.createElement("template");
-    templateElement.innerHTML = this.template();
-
-    this.bindEvents(templateElement.content);
-    this.mapRegions(templateElement.content);
-
-    this.onRender();
-
-    this.parent.append(templateElement.content);
+      for (let key in regionsMap) {
+        const selector = regionsMap[key];
+        const element = fragment.querySelector(selector);
+        
+        if (element) {
+          this.regions[key] = element;
+        }
+      }
+    }
+    
+    onRender(): void {}
+    
+    render = () => {
+      this.parent.innerHTML='';
+      
+      const templateElement = document.createElement("template");
+        
+      templateElement.innerHTML = this.template();
+      
+      this.bindEvents(templateElement.content);
+      this.mapRegions(templateElement.content);
+      
+      this.onRender();
+      
+      this.parent.innerHTML=templateElement.innerHTML;
   }
 }

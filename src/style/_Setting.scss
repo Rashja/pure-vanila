@@ -1,6 +1,26 @@
+// base
+$off-white:#fff;
 $off-dark:#2d3047;
 $off-light-dark:#43455c;
 $off-green:#009ca7;
-$off-white:#fff;
-$off-dim-white:#f6f6f6;
 $off-red:#ff2252;
+// dark theme
+$dark-theme-white:#fbfcfd;
+$dark-theme-nav-start:#009ca7;
+$dark-theme-nav-end:#36d3d3;
+$dark-theme-main-bg:#43455c;
+$dark-theme-card-bg:#2d3047;
+$dark-theme-dark-gray:gray;
+$dark-theme-nav:#171c33;
+// light theme
+$light-theme-white:#fbfcfd;
+$light-theme-nav-start:#e6ecec;
+$light-theme-nav-end:#e6ecec;
+$light-theme-main-bg:#e0e5e6;
+$light-theme-card-bg:#bec9ca;
+$light-theme-dark-gray:gray;
+$light-theme-nav:#009ca7;
+
+
+// box shadow
+$box-shadow:0 3px 6px 0 rgba(0, 0, 0, 0.1);

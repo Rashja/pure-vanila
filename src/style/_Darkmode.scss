@@ -1,9 +1,62 @@
 .dark-mode {
-    background-color: $off-light-dark;
+    background-color: $dark-theme-main-bg;
  .product-card-data-wrapper {
-    background-color: $off-dark !important;
+    background-color: $dark-theme-card-bg !important;
     .product-card-title{
         color: $off-white !important;
     }
+ }
+.navbar {
+  background: $dark-theme-nav;
+}
+
+#navbar__logo {
+  background-color: $dark-theme-nav;
+  background-image: linear-gradient(to top, $dark-theme-nav-start 0%, $dark-theme-nav-end 100%);
+}
+
+.navbar__links {
+  color: $dark-theme-white;
+}
+
+
+.button {
+  background: -webkit-linear-gradient(to right, $dark-theme-nav-start, $off-white, $dark-theme-nav-end);
+  background: linear-gradient(to right, $dark-theme-nav-start, $off-white, $dark-theme-nav-end);
+  color: $dark-theme-nav;
+}
+
+.navbar__links:hover {
+  color: $dark-theme-nav-end;
+}
+
+// solo singlr card 
+.single-product-wrapper {
+   background-color: $dark-theme-card-bg;
+   .single-product-data-wrapper{
+       .single-product-category{
+           color: $dark-theme-white;
+       }
+       .single-product-description{
+           color: $dark-theme-white;
+       }
+       .single-product-price {
+           color: $off-red;
+       }
+       .single-product-title{
+           color: $dark-theme-white;
+       }
+   }
+}
+
+ @media screen and (max-width: 960px) {
+
+  .navbar__menu.active {
+    background: $dark-theme-nav;
+  }
+
+  .navbar__toggle .bar {
+    background: #fff;
+  }
  }
 }
